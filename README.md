@@ -1,5 +1,10 @@
 # Vaadin Codegen
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.fenrur.vaadin-codegen/library)](https://central.sonatype.com/artifact/io.github.fenrur.vaadin-codegen/library)
+[![Build](https://github.com/Fenrur/vaadin-codegen/actions/workflows/ci.yml/badge.svg)](https://github.com/Fenrur/vaadin-codegen/actions/workflows/ci.yml)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.1.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A KSP (Kotlin Symbol Processing) processor that generates factory classes and DSL extension functions for Vaadin components.
 
 ## Installation
