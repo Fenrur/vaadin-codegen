@@ -1,11 +1,11 @@
 package com.example.quarkus
 
-import com.github.fenrur.signal.BindableMutableSignal
-import com.github.fenrur.signal.BindableSignal
-import com.github.fenrur.signal.bindableMutableSignalOf
-import com.github.fenrur.signal.bindableSignalOf
-import com.github.fenrur.vaadin.codegen.ExposeSignal
-import com.github.fenrur.vaadin.codegen.GenDsl
+import io.github.fenrur.signal.BindableMutableSignal
+import io.github.fenrur.signal.BindableSignal
+import io.github.fenrur.signal.bindableMutableSignalOf
+import io.github.fenrur.signal.bindableSignalOf
+import io.github.fenrur.vaadin.codegen.ExposeSignal
+import io.github.fenrur.vaadin.codegen.GenDsl
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H3
 import com.vaadin.flow.component.html.Paragraph

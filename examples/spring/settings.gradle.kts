@@ -14,7 +14,7 @@ pluginManagement {
         id("org.springframework.boot") version "3.4.1"
         id("io.spring.dependency-management") version "1.1.7"
         id("com.vaadin") version "24.6.3"
-        id("com.github.fenrur.vaadin-codegen") version "1.0.0"
+        id("io.github.fenrur.vaadin-codegen") version "1.0.0"
     }
 }
 

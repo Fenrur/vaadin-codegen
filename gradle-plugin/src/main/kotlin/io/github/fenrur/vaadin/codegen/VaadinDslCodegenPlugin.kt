@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.GradleException
@@ -17,7 +17,7 @@ import org.gradle.api.Project
  * ```kotlin
  * plugins {
  *     id("com.google.devtools.ksp") version "2.2.0-2.0.2"  // Apply KSP with your Kotlin version
- *     id("com.github.fenrur.vaadin-codegen") version "1.0.0"
+ *     id("io.github.fenrur.vaadin-codegen") version "1.0.0"
  * }
  *
  * vaadinDslCodegen {
@@ -42,7 +42,7 @@ class VaadinDslCodegenPlugin : Plugin<Project> {
             // Check that KSP plugin is applied
             if (!project.plugins.hasPlugin("com.google.devtools.ksp")) {
                 throw GradleException(
-                    "The 'com.google.devtools.ksp' plugin must be applied before 'com.github.fenrur.vaadin-codegen'. " +
+                    "The 'com.google.devtools.ksp' plugin must be applied before 'io.github.fenrur.vaadin-codegen'. " +
                     "Please add: id(\"com.google.devtools.ksp\") version \"<version>\" to your plugins block."
                 )
             }

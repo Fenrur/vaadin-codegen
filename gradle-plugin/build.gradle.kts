@@ -1,11 +1,12 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.1.20"
     `java-gradle-plugin`
-    `maven-publish`
+    id("org.jetbrains.dokka") version "2.1.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
-group = "com.github.fenrur.vaadin-codegen"
-version = System.getenv("VERSION") ?: "1.0.0"
+group = "io.github.fenrur.vaadin-codegen"
+version = System.getenv("VERSION") ?: "2.0.0"
 
 repositories {
     mavenCentral()
@@ -15,20 +16,18 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(11))
     }
-    withSourcesJar()
-    withJavadocJar()
 }
 
 dependencies {
     implementation(gradleApi())
-    compileOnly("com.google.devtools.ksp:symbol-processing-gradle-plugin:2.1.0-1.0.29")
+    compileOnly("com.google.devtools.ksp:symbol-processing-gradle-plugin:2.1.20-1.0.32")
 }
 
 gradlePlugin {
     plugins {
         create("vaadinDslCodegen") {
-            id = "com.github.fenrur.vaadin-codegen"
-            implementationClass = "com.github.fenrur.vaadin.codegen.VaadinDslCodegenPlugin"
+            id = "io.github.fenrur.vaadin-codegen"
+            implementationClass = "io.github.fenrur.vaadin.codegen.VaadinDslCodegenPlugin"
             displayName = "Vaadin DSL Codegen"
             description = "Gradle plugin for configuring Vaadin DSL code generation"
         }
@@ -41,41 +40,34 @@ kotlin {
     }
 }
 
-// Configure publications after they are created by java-gradle-plugin
-afterEvaluate {
-    publishing {
-        publications {
-            withType<MavenPublication> {
-                if (name != "vaadinDslCodegenPluginMarkerMaven") {
-                    artifactId = "gradle-plugin"
-                }
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
 
-                pom {
-                    name.set("Vaadin DSL Codegen Gradle Plugin")
-                    description.set("Gradle plugin for configuring Vaadin DSL code generation")
-                    url.set("https://github.com/fenrur/vaadin-codegen")
+    pom {
+        name.set("Vaadin DSL Codegen Gradle Plugin")
+        description.set("Gradle plugin for configuring Vaadin DSL code generation")
+        url.set("https://github.com/fenrur/vaadin-codegen")
+        inceptionYear.set("2025")
 
-                    licenses {
-                        license {
-                            name.set("MIT License")
-                            url.set("https://opensource.org/licenses/MIT")
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id.set("fenrur")
-                            name.set("Livio TINNIRELLO")
-                        }
-                    }
-
-                    scm {
-                        url.set("https://github.com/fenrur/vaadin-codegen")
-                        connection.set("scm:git:git://github.com/fenrur/vaadin-codegen.git")
-                        developerConnection.set("scm:git:ssh://github.com/fenrur/vaadin-codegen.git")
-                    }
-                }
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
             }
+        }
+
+        developers {
+            developer {
+                id.set("fenrur")
+                name.set("Livio TINNIRELLO")
+            }
+        }
+
+        scm {
+            url.set("https://github.com/fenrur/vaadin-codegen")
+            connection.set("scm:git:git://github.com/fenrur/vaadin-codegen.git")
+            developerConnection.set("scm:git:ssh://github.com/fenrur/vaadin-codegen.git")
         }
     }
 }

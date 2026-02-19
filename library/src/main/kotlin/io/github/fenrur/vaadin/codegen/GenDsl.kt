@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 /**
  * Marks a class for DSL code generation.

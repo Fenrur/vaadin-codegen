@@ -1,2 +1,2 @@
-com.github.fenrur.vaadin.codegen.VaadinDslProcessorProvider
-com.github.fenrur.vaadin.codegen.ExposeSignalProcessorProvider
+io.github.fenrur.vaadin.codegen.VaadinDslProcessorProvider
+io.github.fenrur.vaadin.codegen.ExposeSignalProcessorProvider

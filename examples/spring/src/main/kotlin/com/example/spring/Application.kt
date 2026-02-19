@@ -10,7 +10,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["com.example.spring", "com.github.fenrur.vaadin.codegen"])
+@ComponentScan(basePackages = ["com.example.spring", "io.github.fenrur.vaadin.codegen"])
 @Push(PushMode.AUTOMATIC, transport = Transport.WEBSOCKET)
 @PWA(name = "Vaadin Codegen Spring Example", shortName = "Codegen Spring")
 class Application : AppShellConfigurator

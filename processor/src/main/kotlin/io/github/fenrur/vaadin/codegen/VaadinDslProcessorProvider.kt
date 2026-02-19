@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment

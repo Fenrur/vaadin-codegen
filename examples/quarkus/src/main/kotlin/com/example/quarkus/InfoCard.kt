@@ -1,6 +1,6 @@
 package com.example.quarkus
 
-import com.github.fenrur.vaadin.codegen.GenDsl
+import io.github.fenrur.vaadin.codegen.GenDsl
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H3
 import com.vaadin.flow.component.html.Paragraph

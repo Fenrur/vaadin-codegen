@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -23,8 +23,8 @@ class VaadinDslProcessor(
 ) : SymbolProcessor {
 
     companion object {
-        private const val GEN_DSL_ANNOTATION = "com.github.fenrur.vaadin.codegen.GenDsl"
-        private const val GEN_DSL_INJECT_ANNOTATION = "com.github.fenrur.vaadin.codegen.GenDslInject"
+        private const val GEN_DSL_ANNOTATION = "io.github.fenrur.vaadin.codegen.GenDsl"
+        private const val GEN_DSL_INJECT_ANNOTATION = "io.github.fenrur.vaadin.codegen.GenDslInject"
 
         private val VAADIN_COMPONENT_PACKAGES = setOf(
             "com.vaadin.flow.component",
@@ -173,7 +173,7 @@ class VaadinDslProcessor(
         val fileName = "${className}Dsl"
 
         val imports = mutableSetOf<String>()
-        imports.add("com.github.fenrur.vaadin.codegen.VaadinDsl")
+        imports.add("io.github.fenrur.vaadin.codegen.VaadinDsl")
 
         if (extendsComponent) {
             imports.add("com.vaadin.flow.component.HasComponents")
@@ -222,7 +222,7 @@ class VaadinDslProcessor(
         extendsComponent: Boolean
     ) {
         val imports = mutableSetOf<String>()
-        imports.add("com.github.fenrur.vaadin.codegen.VaadinDsl")
+        imports.add("io.github.fenrur.vaadin.codegen.VaadinDsl")
 
         when (mode) {
             ContainerMode.QUARKUS -> {
@@ -231,7 +231,7 @@ class VaadinDslProcessor(
                 imports.add("jakarta.enterprise.context.ApplicationScoped")
             }
             ContainerMode.SPRING -> {
-                imports.add("com.github.fenrur.vaadin.codegen.VaadinDslApplicationContextHolder")
+                imports.add("io.github.fenrur.vaadin.codegen.VaadinDslApplicationContextHolder")
                 imports.add("org.springframework.stereotype.Component")
             }
         }

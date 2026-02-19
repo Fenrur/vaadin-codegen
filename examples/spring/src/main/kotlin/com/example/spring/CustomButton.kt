@@ -1,7 +1,7 @@
 package com.example.spring
 
-import com.github.fenrur.vaadin.codegen.GenDsl
-import com.github.fenrur.vaadin.codegen.GenDslInject
+import io.github.fenrur.vaadin.codegen.GenDsl
+import io.github.fenrur.vaadin.codegen.GenDslInject
 import com.vaadin.flow.component.button.Button
 import org.slf4j.Logger
 

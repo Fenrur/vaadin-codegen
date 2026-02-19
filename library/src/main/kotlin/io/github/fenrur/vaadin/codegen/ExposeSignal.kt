@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 /**
  * Marks a property for signal binding extension generation.
@@ -40,10 +40,10 @@ package com.github.fenrur.vaadin.codegen
  * myComponent.userName(nameSignal)
  * ```
  *
- * @see com.github.fenrur.signal.BindableMutableSignal
- * @see com.github.fenrur.signal.BindableSignal
- * @see com.github.fenrur.signal.MutableSignal
- * @see com.github.fenrur.signal.Signal
+ * @see io.github.fenrur.signal.BindableMutableSignal
+ * @see io.github.fenrur.signal.BindableSignal
+ * @see io.github.fenrur.signal.MutableSignal
+ * @see io.github.fenrur.signal.Signal
  */
 @Target(AnnotationTarget.PROPERTY)
 @Retention(AnnotationRetention.SOURCE)

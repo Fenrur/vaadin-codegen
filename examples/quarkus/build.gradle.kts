@@ -1,4 +1,4 @@
-import com.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
+import io.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
 
 plugins {
     kotlin("jvm")
@@ -6,7 +6,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("io.quarkus")
     id("com.vaadin")
-    id("com.github.fenrur.vaadin-codegen")
+    id("io.github.fenrur.vaadin-codegen")
 }
 
 val vaadinVersion = "24.6.3"
@@ -29,11 +29,11 @@ dependencies {
     }
 
     // Vaadin DSL Codegen library
-    implementation("com.github.fenrur.vaadin-codegen:library:$vaadinCodegenVersion")
-    ksp("com.github.fenrur.vaadin-codegen:processor:$vaadinCodegenVersion")
+    implementation("io.github.fenrur.vaadin-codegen:library:$vaadinCodegenVersion")
+    ksp("io.github.fenrur.vaadin-codegen:processor:$vaadinCodegenVersion")
 
     // Signal library for @ExposeSignal
-    implementation("com.github.fenrur:signal:1.0.0")
+    implementation("io.github.fenrur:signal:1.0.0")
 
     // Logging
     implementation("org.slf4j:slf4j-api:2.0.16")

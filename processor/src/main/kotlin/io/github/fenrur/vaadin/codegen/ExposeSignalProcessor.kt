@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -26,9 +26,9 @@ class ExposeSignalProcessor(
 ) : SymbolProcessor {
 
     companion object {
-        private const val EXPOSE_SIGNAL_ANNOTATION = "com.github.fenrur.vaadin.codegen.ExposeSignal"
-        private const val BINDABLE_MUTABLE_SIGNAL_QUALIFIED = "com.github.fenrur.signal.BindableMutableSignal"
-        private const val BINDABLE_SIGNAL_QUALIFIED = "com.github.fenrur.signal.BindableSignal"
+        private const val EXPOSE_SIGNAL_ANNOTATION = "io.github.fenrur.vaadin.codegen.ExposeSignal"
+        private const val BINDABLE_MUTABLE_SIGNAL_QUALIFIED = "io.github.fenrur.signal.BindableMutableSignal"
+        private const val BINDABLE_SIGNAL_QUALIFIED = "io.github.fenrur.signal.BindableSignal"
     }
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -145,9 +145,9 @@ class ExposeSignalProcessor(
             val typeQualifiedName = propertyType.declaration.qualifiedName?.asString()
 
             if (typeQualifiedName == BINDABLE_MUTABLE_SIGNAL_QUALIFIED) {
-                imports.add("com.github.fenrur.signal.MutableSignal")
+                imports.add("io.github.fenrur.signal.MutableSignal")
             } else if (typeQualifiedName == BINDABLE_SIGNAL_QUALIFIED) {
-                imports.add("com.github.fenrur.signal.Signal")
+                imports.add("io.github.fenrur.signal.Signal")
             }
 
             // Add imports for type arguments

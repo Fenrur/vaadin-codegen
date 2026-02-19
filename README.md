@@ -4,8 +4,6 @@ A KSP (Kotlin Symbol Processing) processor that generates factory classes and DS
 
 ## Installation
 
-[![](https://jitpack.io/v/fenrur/vaadin-codegen.svg)](https://jitpack.io/#fenrur/vaadin-codegen)
-
 ### Gradle (Kotlin DSL)
 
 ```kotlin
@@ -14,34 +12,32 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven { url = uri("https://jitpack.io") }
     }
     plugins {
         // Define KSP version here for compatibility with your Kotlin version
-        id("com.google.devtools.ksp") version "2.1.0-1.0.29"
-        id("com.github.fenrur.vaadin-codegen") version "1.0.0"
+        id("com.google.devtools.ksp") version "2.1.20-1.0.32"
+        id("io.github.fenrur.vaadin-codegen") version "2.0.0"
     }
 }
 
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
     }
 }
 
 // build.gradle.kts
-import com.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
+import io.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
 
 plugins {
-    kotlin("jvm") version "2.1.0"
-    id("com.google.devtools.ksp") version "2.1.0-1.0.29" // KSP version must match your Kotlin version
-    id("com.github.fenrur.vaadin-codegen") version "1.0.0"
+    kotlin("jvm") version "2.1.20"
+    id("com.google.devtools.ksp") version "2.1.20-1.0.32" // KSP version must match your Kotlin version
+    id("io.github.fenrur.vaadin-codegen") version "2.0.0"
 }
 
 dependencies {
-    implementation("com.github.fenrur.vaadin-codegen:library:1.0.0")
-    ksp("com.github.fenrur.vaadin-codegen:processor:1.0.0")
+    implementation("io.github.fenrur.vaadin-codegen:library:2.0.0")
+    ksp("io.github.fenrur.vaadin-codegen:processor:2.0.0")
 }
 
 vaadinDslCodegen {
@@ -57,34 +53,32 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven { url 'https://jitpack.io' }
     }
     plugins {
         // Define KSP version here for compatibility with your Kotlin version
-        id 'com.google.devtools.ksp' version '2.1.0-1.0.29'
-        id 'com.github.fenrur.vaadin-codegen' version '1.0.0'
+        id 'com.google.devtools.ksp' version '2.1.20-1.0.32'
+        id 'io.github.fenrur.vaadin-codegen' version '2.0.0'
     }
 }
 
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
-        maven { url 'https://jitpack.io' }
     }
 }
 
 // build.gradle
-import com.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
+import io.github.fenrur.vaadin.codegen.VaadinDslCodegenExtension.Mode
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '2.1.0'
-    id 'com.google.devtools.ksp' version '2.1.0-1.0.29' // KSP version must match your Kotlin version
-    id 'com.github.fenrur.vaadin-codegen' version '1.0.0'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.20'
+    id 'com.google.devtools.ksp' version '2.1.20-1.0.32' // KSP version must match your Kotlin version
+    id 'io.github.fenrur.vaadin-codegen' version '2.0.0'
 }
 
 dependencies {
-    implementation 'com.github.fenrur.vaadin-codegen:library:1.0.0'
-    ksp 'com.github.fenrur.vaadin-codegen:processor:1.0.0'
+    implementation 'io.github.fenrur.vaadin-codegen:library:2.0.0'
+    ksp 'io.github.fenrur.vaadin-codegen:processor:2.0.0'
 }
 
 vaadinDslCodegen {
@@ -108,7 +102,7 @@ When using Spring mode, make sure `VaadinDslApplicationContextHolder` is availab
 ```kotlin
 // This class is provided in the library module
 // Just make sure Spring component scanning includes the package
-@ComponentScan("com.github.fenrur.vaadin.codegen")
+@ComponentScan("io.github.fenrur.vaadin.codegen")
 ```
 
 ## Quarkus + KSP Circular Dependency Fix
@@ -241,7 +235,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["com.example.spring", "com.github.fenrur.vaadin.codegen"])
+@ComponentScan(basePackages = ["com.example.spring", "io.github.fenrur.vaadin.codegen"])
 @Push(PushMode.AUTOMATIC, transport = Transport.WEBSOCKET)
 @PWA(name = "My Application", shortName = "MyApp")
 class Application : AppShellConfigurator
@@ -276,8 +270,8 @@ fun main(args: Array<String>) {
 Marks a class for DSL code generation.
 
 ```kotlin
-import com.github.fenrur.vaadin.codegen.GenDsl
-import com.github.fenrur.vaadin.codegen.GenDslInject
+import io.github.fenrur.vaadin.codegen.GenDsl
+import io.github.fenrur.vaadin.codegen.GenDslInject
 
 @GenDsl
 class CustomButton(
@@ -319,14 +313,14 @@ The examples below demonstrate usage with both libraries.
 - `internal`, `protected`, and `private` properties will cause a compilation error
 
 ```kotlin
-import com.github.fenrur.signal.BindableMutableSignal
-import com.github.fenrur.signal.BindableSignal
-import com.github.fenrur.signal.bindableMutableSignalOf
-import com.github.fenrur.signal.bindableSignalOf
-import com.github.fenrur.vaadin.codegen.ExposeSignal
-import com.github.fenrur.vaadin.codegen.GenDsl
-import com.github.fenrur.vaadin.signal.textContent
-import com.github.fenrur.vaadin.signal.visible
+import io.github.fenrur.signal.BindableMutableSignal
+import io.github.fenrur.signal.BindableSignal
+import io.github.fenrur.signal.bindableMutableSignalOf
+import io.github.fenrur.signal.bindableSignalOf
+import io.github.fenrur.vaadin.codegen.ExposeSignal
+import io.github.fenrur.vaadin.codegen.GenDsl
+import io.github.fenrur.vaadin.signal.textContent
+import io.github.fenrur.vaadin.signal.visible
 import com.github.mvysny.karibudsl.v10.h3
 import com.github.mvysny.karibudsl.v10.p
 import com.vaadin.flow.component.html.Div

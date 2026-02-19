@@ -1,4 +1,4 @@
-package com.github.fenrur.vaadin.codegen
+package io.github.fenrur.vaadin.codegen
 
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware
