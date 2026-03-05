@@ -6,7 +6,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly("org.springframework:spring-context:5.3.39")
+    compileOnly("org.springframework:spring-context:6.1.20")
 }
 
 java {
